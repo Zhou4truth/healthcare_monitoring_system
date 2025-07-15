@@ -1,0 +1,92 @@
+{
+  "camera": {
+    "source": 0,
+    "width": 640,
+    "height": 480,
+    "fps": 30,
+    "buffer_size": 5,
+    "auto_exposure": true,
+    "exposure_value": -6
+  },
+  "person_detection": {
+    "model_path": "yolov8n.pt",
+    "confidence_threshold": 0.5,
+    "iou_threshold": 0.4,
+    "use_tensorrt": true,
+    "min_person_area": 1000,
+    "max_person_area": 500000
+  },
+  "pose_estimation": {
+    "model_complexity": 1,
+    "min_detection_confidence": 0.5,
+    "min_tracking_confidence": 0.5,
+    "smooth_landmarks": true,
+    "min_visibility_threshold": 0.5
+  },
+  "fall_detection": {
+    "sequence_length": 30,
+    "confidence_threshold": 0.7,
+    "rule_weight": 0.4,
+    "lstm_weight": 0.6,
+    "model_path": null,
+    "min_fall_duration": 0.5,
+    "torso_angle_threshold": 1.047,
+    "aspect_ratio_threshold": 1.5,
+    "velocity_threshold": 50.0,
+    "acceleration_threshold": 10.0,
+    "height_drop_threshold": 0.3
+  },
+  "privacy": {
+    "enabled": true,
+    "mode": "standard",
+    "blur_strength": 51,
+    "model_selection": 1,
+    "anonymize_output": false
+  },
+  "alerts": {
+    "email_enabled": false,
+    "email_smtp_server": "smtp.gmail.com",
+    "email_smtp_port": 587,
+    "email_username": "",
+    "email_password": "",
+    "email_recipients": [],
+    "webhook_enabled": false,
+    "webhook_url": "",
+    "webhook_headers": {
+      "Content-Type": "application/json"
+    },
+    "sms_enabled": false,
+    "sms_api_key": "",
+    "sms_api_url": "",
+    "sms_recipients": [],
+    "sound_enabled": true,
+    "sound_file": "/usr/share/sounds/alsa/Front_Left.wav",
+    "local_logging": true,
+    "log_file": "fall_alerts.log",
+    "cooldown_period": 60,
+    "max_alerts_per_hour": 10
+  },
+  "performance": {
+    "target_fps": 30,
+    "max_cpu_usage": 80.0,
+    "max_memory_mb": 2048,
+    "enable_gpu_acceleration": true,
+    "enable_tensorrt": true,
+    "optimization_level": "balanced"
+  },
+  "logging": {
+    "level": "INFO",
+    "file_path": "fall_detection.log",
+    "max_file_size_mb": 50,
+    "backup_count": 5,
+    "enable_console": true,
+    "enable_file": true
+  },
+  "enable_display": true,
+  "display_fps": true,
+  "display_detections": true,
+  "display_pose": true,
+  "save_events": true,
+  "events_directory": "events",
+  "max_event_files": 1000
+}
